@@ -1,5 +1,6 @@
 export interface Event{
   title:string|null
   details:string|null
-  // time:number
+  time:Date|null
+  position:string|null
 }

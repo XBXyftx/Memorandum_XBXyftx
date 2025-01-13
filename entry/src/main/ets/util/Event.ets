@@ -37,3 +37,8 @@ export function getUnfinishedEventList(){
   console.log(JSON.stringify(unfinishedEventList))
   return unfinishedEventList
 }
+
+export function setAccomplishEvent(unfinishedEvent:Event){//将未完成的传入设置为完成
+  let eventListOriginalLink:SubscribedAbstractProperty<Event[]> = AppStorage.link('eventList')//获取AppStorage中的事件列表link
+
+}

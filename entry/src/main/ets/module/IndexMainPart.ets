@@ -56,6 +56,9 @@ export struct indexMainPart {
       .borderRadius(999)
       .backgroundColor(Color.Green)
       .height('80%')
+      .onClick(()=>{
+
+      })
 
       Column(){
         Image($rawfile('ic_public_delete_filled.svg'))//删除

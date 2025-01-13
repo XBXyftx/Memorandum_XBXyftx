@@ -11,16 +11,11 @@ export struct indexMainPart {
     Column() {
       mainPartHeader(this.eventList.length)
 
-      List() {
-        ListItemGroup({ header: this.mainPartUnfinishedGroupHeader() }) { //未完成组
+      List({space:20}) {
+        ListItemGroup({ header: this.mainPartUnfinishedGroupHeader() ,space:10}) { //未完成组
           ForEach(this.unfinishedEventList,(item:Event)=>{
             ListItem(){
-              Row(){
-                Text(item.title)
-                  .fontColor(Color.White)
-              }
-              .padding({left:10})
-              .width('100%')
+              this.eventListItem(item)
             }
 
           })
@@ -28,12 +23,7 @@ export struct indexMainPart {
         ListItemGroup({ header: this.mainPartAccomplishGroupHeader() }) { //已完成组
           ForEach(this.accomplishEventList,(item:Event)=>{
             ListItem(){
-              Row(){
-                Text(item.title)
-                  .fontColor(Color.White)
-              }
-              .padding({left:10})
-              .width('100%')
+              this.eventListItem(item)
             }
 
           })
@@ -48,6 +38,16 @@ export struct indexMainPart {
     }
     .width('100%')
     .height('100%')
+  }
+
+  @Builder
+  eventListItem(item: Event) {
+    Row() {
+      Text(item.title)
+        .fontColor(Color.White)
+    }
+    .padding({ left: 10 })
+    .width('100%')
   }
 
   @Builder

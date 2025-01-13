@@ -3,7 +3,7 @@ import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccom
 
 @Component
 export struct indexMainPart {
-  @StorageLink('eventList') eventList: Event[] = []
+  // @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
 
@@ -14,7 +14,7 @@ export struct indexMainPart {
 
   build() {
     Column() {
-      mainPartHeader(this.eventList.length)
+      mainPartHeader(this.unfinishedEventList.length+this.accomplishEventList.length)
 
       List({ space: 20 }) {
         ListItemGroup({ header: this.mainPartUnfinishedGroupHeader(), space: 10 }) { //未完成组

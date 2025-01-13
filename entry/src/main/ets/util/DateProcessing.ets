@@ -16,3 +16,4 @@ export function dateToTimestamp(date: Date): string {
 export function timestampToDate(timestamp: string): Date {
   return new Date(timestamp);
 }
+

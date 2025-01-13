@@ -13,6 +13,11 @@ export let eventList:Event[] = [
   {title:'交作业4',accomplish:true},
   {title:'交作业5',accomplish:true},
   {title:'交作业6',accomplish:false},
+  {
+    title: '交作业7',
+    accomplish: false,
+    time: new Date('2025-02-01T09:00:00Z')
+  }
 ]
 
 export function getAccomplishEventList(){

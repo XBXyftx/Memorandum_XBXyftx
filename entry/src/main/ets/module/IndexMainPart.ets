@@ -44,9 +44,14 @@ export struct indexMainPart {
   @Builder
   eventListItem(item: Event, index: number) {
     Row() {
-      Text(item.title)
-        .fontColor(Color.White)
+      Column(){
+        Text(item.title)
+          .fontColor(Color.White)
+        Text(`2024`)
+      }
+
     }
+    .backgroundColor('#ccc')
     .margin({ top: index === 0 ? 10 : 0 })
     .padding({ left: 10 })
     .width('100%')

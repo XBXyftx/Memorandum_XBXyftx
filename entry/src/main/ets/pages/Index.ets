@@ -1,5 +1,8 @@
 import {plusButton} from '../module/PlusButton'
 import {indexMainPart} from '../module/IndexMainPart'
+import { eventList } from '../util/Event'
+
+PersistentStorage.persistProp('eventList',eventList)
 @Entry
 @Component
 struct Index {

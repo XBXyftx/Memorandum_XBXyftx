@@ -1,9 +1,18 @@
+import { Event } from "../util/Event"
+
 @Component
 export struct indexMainPart {
+  @StorageLink('eventList') eventList:Event[] = []
   build() {
     Column(){
-      mainPartHeader(0)
+      mainPartHeader(this.eventList.length)
 
+      List(){
+
+      }
+      // .backgroundColor(Color.White)
+      .width('100%')
+      .layoutWeight(1)
 
     }
     .width('100%')

@@ -19,6 +19,20 @@ export struct indexMainPart {
                 Text(item.title)
                   .fontColor(Color.White)
               }
+              .padding({left:10})
+              .width('100%')
+            }
+
+          })
+        }
+        ListItemGroup({ header: this.mainPartAccomplishGroupHeader() }) { //已完成组
+          ForEach(this.accomplishEventList,(item:Event)=>{
+            ListItem(){
+              Row(){
+                Text(item.title)
+                  .fontColor(Color.White)
+              }
+              .padding({left:10})
               .width('100%')
             }
 
@@ -40,7 +54,26 @@ export struct indexMainPart {
   mainPartUnfinishedGroupHeader() {
     Row() {
       Text('未完成事项')
+        .fontSize(25)
+        .fontColor(Color.White)
     }
+    .borderRadius(10)
+    .padding({left:5,bottom:4,top:4})
+    .backgroundColor('#865b5b5b')
+    .justifyContent(FlexAlign.Start)
+    .width('100%')
+  }
+
+  @Builder
+  mainPartAccomplishGroupHeader() {
+    Row() {
+      Text('已完成事项')
+        .fontSize(25)
+        .fontColor(Color.White)
+    }
+    .borderRadius(10)
+    .padding({left:5,bottom:4,top:4})
+    .backgroundColor('#865b5b5b')
     .justifyContent(FlexAlign.Start)
     .width('100%')
   }
@@ -51,7 +84,7 @@ function mainPartHeader(eventNum: number) {
   Row() {
     Column() {
       Text('待办事项')
-        .fontSize(30)
+        .fontSize(35)
         .fontColor(Color.White)
         .fontWeight(700);
       Text(`${eventNum}条代办`)

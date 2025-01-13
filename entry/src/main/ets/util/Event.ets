@@ -20,6 +20,9 @@ export function getAccomplishEventList(){
   let accomplishEventList:Event[]=eventListOriginalLink.get().filter((item:Event)=>{//筛选出已经完成的
     return item.accomplish
   })
+  // let accomplishEventList:Event[]=eventList.filter((item:Event)=>{//筛选出已经完成的
+  //     return item.accomplish
+  //   })
   console.log(JSON.stringify(accomplishEventList))
   return accomplishEventList
 }
@@ -29,6 +32,9 @@ export function getUnfinishedEventList(){
   let unfinishedEventList:Event[]=eventListOriginalLink.get().filter((item:Event)=>{//筛选出未完成的
     return item.accomplish===false
   })
+  // let unfinishedEventList:Event[]=eventList.filter((item:Event)=>{//筛选出已经完成的
+  //   return item.accomplish===false
+  // })
   console.log(JSON.stringify(unfinishedEventList))
   return unfinishedEventList
 }

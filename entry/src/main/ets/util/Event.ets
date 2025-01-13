@@ -3,4 +3,5 @@ export interface Event{
   details:string|null
   time:Date|null
   position:string|null
+  accomplish:boolean|null
 }

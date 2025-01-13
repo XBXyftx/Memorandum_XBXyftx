@@ -1,5 +1,5 @@
 import {plusButton} from '../module/PlusButton'
-
+import {indexMainPart} from '../module/IndexMainPart'
 @Entry
 @Component
 struct Index {
@@ -8,7 +8,7 @@ struct Index {
     Stack({alignContent:Alignment.BottomEnd}){
 
       //下层主体
-
+      indexMainPart()
 
 
       //上层加号

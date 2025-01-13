@@ -1,14 +1,15 @@
-import { Event } from "../util/Event"
+import { Event, getAccomplishEventList, getUnfinishedEventList } from "../util/Event"
 
 @Component
 export struct indexMainPart {
-  @StorageLink('eventList') eventList:Event[] = []
+  @StorageLink('eventList') eventList: Event[] = []
+
   build() {
-    Column(){
+    Column() {
       mainPartHeader(this.eventList.length)
 
-      List(){
-        ListItemGroup(){
+      List() {
+        ListItemGroup() {
 
         }
       }
@@ -23,7 +24,7 @@ export struct indexMainPart {
 }
 
 @Builder
-function mainPartHeader(eventNum:number) {
+function mainPartHeader(eventNum: number) {
   Row() {
     Column() {
       Text('待办事项')

@@ -1,18 +1,31 @@
+import { it } from "@ohos/hypium"
 import { Event, getAccomplishEventList, getUnfinishedEventList } from "../util/Event"
 
 @Component
 export struct indexMainPart {
   @StorageLink('eventList') eventList: Event[] = []
+  @State unfinishedEventList: Event[] = getUnfinishedEventList()
+  @State AccomplishEventList: Event[] = getAccomplishEventList()
 
   build() {
     Column() {
       mainPartHeader(this.eventList.length)
 
       List() {
-        ListItemGroup() {
+        ListItemGroup({ header: this.mainPartUnfinishedGroupHeader() }) { //未完成组
+          ForEach(this.unfinishedEventList,(item:Event)=>{
+            ListItem(){
+              Row(){
+                Text(item.title)
+              }
+              .width('100%')
+            }
 
+          })
         }
       }
+      .padding(10)
+      .sticky(StickyStyle.Header)
       // .backgroundColor(Color.White)
       .width('100%')
       .layoutWeight(1)
@@ -20,6 +33,15 @@ export struct indexMainPart {
     }
     .width('100%')
     .height('100%')
+  }
+
+  @Builder
+  mainPartUnfinishedGroupHeader() {
+    Row() {
+      Text('未完成事项')
+    }
+    .justifyContent(FlexAlign.Start)
+    .width('100%')
   }
 }
 

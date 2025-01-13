@@ -11,17 +11,14 @@ struct Index {
 
   build() {
     Stack({alignContent:Alignment.BottomEnd}){
-
       //下层主体
       indexMainPart()
-
 
       //上层加号
       plusButton()
         .width(40)
         .height(40)
         .margin({right:20,bottom:30})
-
     }
     .linearGradient({
       direction:GradientDirection.LeftBottom,

@@ -11,19 +11,20 @@ export struct indexMainPart {
     Column() {
       mainPartHeader(this.eventList.length)
 
-      List({space:20}) {
-        ListItemGroup({ header: this.mainPartUnfinishedGroupHeader() ,space:10}) { //未完成组
-          ForEach(this.unfinishedEventList,(item:Event)=>{
-            ListItem(){
-              this.eventListItem(item)
+      List({ space: 20 }) {
+        ListItemGroup({ header: this.mainPartUnfinishedGroupHeader(), space: 10 }) { //未完成组
+          ForEach(this.unfinishedEventList, (item: Event, i) => {
+            ListItem() {
+              this.eventListItem(item, i)
             }
 
           })
         }
-        ListItemGroup({ header: this.mainPartAccomplishGroupHeader() }) { //已完成组
-          ForEach(this.accomplishEventList,(item:Event)=>{
-            ListItem(){
-              this.eventListItem(item)
+
+        ListItemGroup({ header: this.mainPartAccomplishGroupHeader(), space: 10 }) { //已完成组
+          ForEach(this.accomplishEventList, (item: Event, i) => {
+            ListItem() {
+              this.eventListItem(item, i)
             }
 
           })
@@ -41,11 +42,12 @@ export struct indexMainPart {
   }
 
   @Builder
-  eventListItem(item: Event) {
+  eventListItem(item: Event, index: number) {
     Row() {
       Text(item.title)
         .fontColor(Color.White)
     }
+    .margin({ top: index === 0 ? 10 : 0 })
     .padding({ left: 10 })
     .width('100%')
   }
@@ -58,7 +60,7 @@ export struct indexMainPart {
         .fontColor(Color.White)
     }
     .borderRadius(10)
-    .padding({left:5,bottom:4,top:4})
+    .padding({ left: 5, bottom: 4, top: 4 })
     .backgroundColor('#865b5b5b')
     .justifyContent(FlexAlign.Start)
     .width('100%')
@@ -72,7 +74,7 @@ export struct indexMainPart {
         .fontColor(Color.White)
     }
     .borderRadius(10)
-    .padding({left:5,bottom:4,top:4})
+    .padding({ left: 5, bottom: 4, top: 4 })
     .backgroundColor('#865b5b5b')
     .justifyContent(FlexAlign.Start)
     .width('100%')

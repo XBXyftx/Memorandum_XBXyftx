@@ -1,4 +1,5 @@
 import { dateToTimestamp } from "./DateProcessing";
+import App from "@system.app";
 
 export interface Event {
   title: string | null;
@@ -32,8 +33,11 @@ export function initializeEventList() {
     }
     return event;
   });
-  AppStorage.setOrCreate<Event[]>('eventList', eventListWithTimestamps);
-  PersistentStorage.persistProp<Event[]>('eventList',[]);
+  if (!AppStorage.has('eventList')) {
+    AppStorage.setOrCreate<Event[]>('eventList', eventListWithTimestamps);
+    PersistentStorage.persistProp<Event[]>('eventList',[]);
+  }
+
 }
 
 // 获取已完成事件列表

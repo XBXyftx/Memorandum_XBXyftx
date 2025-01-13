@@ -8,7 +8,9 @@ export struct indexMainPart {
       mainPartHeader(this.eventList.length)
 
       List(){
+        ListItemGroup(){
 
+        }
       }
       // .backgroundColor(Color.White)
       .width('100%')

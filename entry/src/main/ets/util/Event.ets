@@ -14,3 +14,10 @@ export let eventList:Event[] = [
   {title:'交作业5',accomplish:false},
   {title:'交作业6',accomplish:false},
 ]
+
+export function getAccomplishEventList(){
+  let eventListOriginalLink:SubscribedAbstractProperty<Event[]> = AppStorage.link('eventList')
+  let accomplishEventList:Event[]=eventListOriginalLink.get().filter(()=>{
+
+  })
+}

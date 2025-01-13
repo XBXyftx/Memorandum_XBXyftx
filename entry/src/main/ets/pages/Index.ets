@@ -2,7 +2,8 @@ import {plusButton} from '../module/PlusButton'
 import {indexMainPart} from '../module/IndexMainPart'
 import { eventList } from '../util/Event'
 
-PersistentStorage.persistProp('eventList',eventList)
+PersistentStorage.persistProp('eventList',eventList)//在持久化存储中初始化事件列表
+
 @Entry
 @Component
 struct Index {

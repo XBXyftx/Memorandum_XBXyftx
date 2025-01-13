@@ -1,6 +1,5 @@
-// Event.ets
 import { dateToTimestamp } from "./DateProcessing";
-// import { AppStorage, PersistentStorage } from '@system.storage';
+
 
 export interface Event {
   title: string;
@@ -88,5 +87,3 @@ export function changeEventAccomplishState(event: Event) {
     // PersistentStorage.persistProp('eventList', eventListJson);
   }
 }
-
-// ... 其他代码 ...

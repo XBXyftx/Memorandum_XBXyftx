@@ -33,9 +33,6 @@ export function initializeEventList() {
 
 }
 
-// Event.ets
-// ... 其他代码 ...
-
 // 获取事件列表的函数，确保从存储中读取的 JSON 字符串有效
 export function getEventListFromStorage(): Event[] {
   const eventListJson: string | undefined = AppStorage.get('eventList');

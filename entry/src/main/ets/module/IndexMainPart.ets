@@ -26,6 +26,11 @@ export struct indexMainPart {
             ListItem() {
               this.eventListItem(item, i)
             }
+            .swipeAction({
+              end:{
+                builder:this.eventListItemEnd(item)
+              }
+            })
 
           })
         }
@@ -42,23 +47,32 @@ export struct indexMainPart {
   }
 
   @Builder
+  eventListItemEnd(item:Event){
+
+  }
+
+  @Builder
   eventListItem(item: Event, index: number) {
     Row() {
-      Column({ space: 5 }) {
+      Column({ space: 6 }) {
         Text(item.title)
           .fontColor(Color.White)
+          .fontSize(16)
         if (item.time){
           Text(formatDate(item.time))
+            .fontColor(Color.White)
+            .fontSize(16)
         }
 
       }
+      .justifyContent(FlexAlign.Center)
       .alignItems(HorizontalAlign.Start)
       .constraintSize({minHeight:25})
 
     }
-    .backgroundColor('#8acccccc')
+    .backgroundColor('#8a4a4a4a')
     .margin({ top: index === 0 ? 10 : 0 })
-    .padding({ left: 10, top: 5, bottom: 5 })
+    .padding({ left: 10, top: 8, bottom: 8 })
     .borderRadius(10)
     .width('100%')
   }

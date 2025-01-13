@@ -53,6 +53,7 @@ export struct indexMainPart {
 
       }
       .alignItems(HorizontalAlign.Start)
+      .constraintSize({minHeight:25})
 
     }
     .backgroundColor('#8acccccc')

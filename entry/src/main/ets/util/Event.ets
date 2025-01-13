@@ -26,9 +26,9 @@ export function getAccomplishEventList(){
 
 export function getUnfinishedEventList(){
   let eventListOriginalLink:SubscribedAbstractProperty<Event[]> = AppStorage.link('eventList')//获取AppStorage中的事件列表link
-  let UnfinishedEventList:Event[]=eventListOriginalLink.get().filter((item:Event)=>{//筛选出未完成的
+  let unfinishedEventList:Event[]=eventListOriginalLink.get().filter((item:Event)=>{//筛选出未完成的
     return item.accomplish===false
   })
-  console.log(JSON.stringify(UnfinishedEventList))
-  return UnfinishedEventList
+  console.log(JSON.stringify(unfinishedEventList))
+  return unfinishedEventList
 }

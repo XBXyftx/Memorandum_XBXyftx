@@ -5,7 +5,7 @@ import { Event, getAccomplishEventList, getUnfinishedEventList } from "../util/E
 export struct indexMainPart {
   @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
-  @State AccomplishEventList: Event[] = getAccomplishEventList()
+  @State accomplishEventList: Event[] = getAccomplishEventList()
 
   build() {
     Column() {
@@ -17,6 +17,7 @@ export struct indexMainPart {
             ListItem(){
               Row(){
                 Text(item.title)
+                  .fontColor(Color.White)
               }
               .width('100%')
             }

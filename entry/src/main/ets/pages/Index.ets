@@ -1,12 +1,12 @@
 import {plusButton} from '../module/PlusButton'
 import {indexMainPart} from '../module/IndexMainPart'
-import { Event, eventList } from '../util/Event';
+import { Event, eventList, initializeEventList } from '../util/Event';
 
 // import { Event,initializeEventList, } from '../util/Event'
 
-// initializeEventList()
+initializeEventList()
 
-PersistentStorage.persistProp<Event[]>('eventList', eventList);
+// PersistentStorage.persistProp<Event[]>('eventList', eventList);
 
 
 

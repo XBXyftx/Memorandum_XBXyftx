@@ -63,6 +63,7 @@ export struct indexMainPart {
       .height(28)
       .onClick(()=>{
         changeEventAccomplishState(item) //修改完成状态
+        // this.eventList.push({ title: '交作业8', accomplish: false })
         this.reloadList() //重新加载页面
       })
 

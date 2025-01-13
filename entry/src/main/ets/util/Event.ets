@@ -32,8 +32,8 @@ export function initializeEventList() {
     }
     return event;
   });
-  // AppStorage.setOrCreate('eventList', eventListWithTimestamps);
-  PersistentStorage.persistProp('eventList', eventListWithTimestamps);
+  AppStorage.setOrCreate<Event[]>('eventList', eventListWithTimestamps);
+  PersistentStorage.persistProp<Event[]>('eventList',[]);
 }
 
 // 获取已完成事件列表

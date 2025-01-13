@@ -17,6 +17,11 @@ export struct indexMainPart {
             ListItem() {
               this.eventListItem(item, i)
             }
+            .swipeAction({
+              end:{
+                builder:this.unfinishedEventListItemEnd(item)
+              }
+            })
 
           })
         }
@@ -26,12 +31,6 @@ export struct indexMainPart {
             ListItem() {
               this.eventListItem(item, i)
             }
-            .swipeAction({
-              end:{
-                builder:this.eventListItemEnd(item)
-              }
-            })
-
           })
         }
       }
@@ -47,8 +46,28 @@ export struct indexMainPart {
   }
 
   @Builder
-  eventListItemEnd(item:Event){
+  unfinishedEventListItemEnd(item:Event){//未完成
+    Row({space:20}){
+      Column(){
+        Image($rawfile('ic_public_ok_filled.svg'))//标记为完成
+          .height('100%')
+          .fillColor(Color.White)
+      }
+      .borderRadius(999)
+      .backgroundColor(Color.Green)
+      .height('80%')
 
+      Column(){
+        Image($rawfile('ic_public_delete_filled.svg'))//删除
+          .height('100%')
+
+      }
+      .borderRadius(999)
+      .backgroundColor(Color.Red)
+      .height('80%')
+    }
+    .height('100%')
+    .padding({left:25,right:25,top:10})
   }
 
   @Builder

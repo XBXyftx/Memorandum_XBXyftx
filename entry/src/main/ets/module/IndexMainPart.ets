@@ -1,4 +1,4 @@
-import { it } from "@ohos/hypium"
+import { formatDate } from "../util/DateProcessing"
 import { Event, getAccomplishEventList, getUnfinishedEventList } from "../util/Event"
 
 @Component
@@ -44,16 +44,21 @@ export struct indexMainPart {
   @Builder
   eventListItem(item: Event, index: number) {
     Row() {
-      Column(){
+      Column({ space: 5 }) {
         Text(item.title)
           .fontColor(Color.White)
-        Text(`2024`)
+        if (item.time){
+          Text(formatDate(item.time))
+        }
+
       }
+      .alignItems(HorizontalAlign.Start)
 
     }
-    .backgroundColor('#ccc')
+    .backgroundColor('#8acccccc')
     .margin({ top: index === 0 ? 10 : 0 })
-    .padding({ left: 10 })
+    .padding({ left: 10, top: 5, bottom: 5 })
+    .borderRadius(10)
     .width('100%')
   }
 

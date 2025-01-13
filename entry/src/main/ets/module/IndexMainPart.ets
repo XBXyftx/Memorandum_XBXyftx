@@ -60,7 +60,7 @@ export struct indexMainPart {
       }
       .borderRadius(999)
       .backgroundColor(Color.Green)
-      .height('80%')
+      .height(28)
       .onClick(()=>{
         changeEventAccomplishState(item) //修改完成状态
         this.reloadList() //重新加载页面
@@ -73,10 +73,11 @@ export struct indexMainPart {
       }
       .borderRadius(999)
       .backgroundColor(Color.Red)
-      .height('80%')
+      .height(28)
     }
     .height('100%')
-    .padding({left:25,right:25,top:10})
+    .alignItems(VerticalAlign.Center)
+    .padding({left:25,right:25})
   }
 
   @Builder

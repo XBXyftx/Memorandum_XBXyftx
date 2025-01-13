@@ -32,7 +32,7 @@ export function initializeEventList() {
     }
     return event;
   });
-  AppStorage.setOrCreate('eventList', eventListWithTimestamps);
+  // AppStorage.setOrCreate('eventList', eventListWithTimestamps);
   PersistentStorage.persistProp('eventList', eventListWithTimestamps);
 }
 

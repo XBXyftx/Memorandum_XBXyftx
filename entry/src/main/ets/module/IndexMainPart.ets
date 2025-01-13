@@ -1,11 +1,16 @@
 import { formatDate } from "../util/DateProcessing"
-import { Event, getAccomplishEventList, getUnfinishedEventList } from "../util/Event"
+import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState } from "../util/Event"
 
 @Component
 export struct indexMainPart {
   @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
+
+  reloadList(){
+    this.unfinishedEventList = getUnfinishedEventList()
+    this.accomplishEventList = getAccomplishEventList()
+  }
 
   build() {
     Column() {
@@ -57,7 +62,8 @@ export struct indexMainPart {
       .backgroundColor(Color.Green)
       .height('80%')
       .onClick(()=>{
-
+        changeEventAccomplishState(item) //修改完成状态
+        this.reloadList() //重新加载页面
       })
 
       Column(){
@@ -80,17 +86,15 @@ export struct indexMainPart {
         Text(item.title)
           .fontColor(Color.White)
           .fontSize(16)
-        if (item.time){
+        if (item.time) { // 确保 item.time 是一个时间戳字符串
           Text(formatDate(item.time))
             .fontColor(Color.White)
             .fontSize(16)
         }
-
       }
       .justifyContent(FlexAlign.Center)
       .alignItems(HorizontalAlign.Start)
       .constraintSize({minHeight:25})
-
     }
     .backgroundColor('#8a4a4a4a')
     .margin({ top: index === 0 ? 10 : 0 })

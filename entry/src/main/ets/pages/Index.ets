@@ -1,13 +1,20 @@
 import {plusButton} from '../module/PlusButton'
 import {indexMainPart} from '../module/IndexMainPart'
-import { Event,eventList } from '../util/Event'
+import { Event,initializeEventList } from '../util/Event'
 
-AppStorage.setOrCreate('eventList',eventList)//在AppStorage中要先初始化然后再在持久化里初始化
-PersistentStorage.persistProp<Event[]>('eventList',eventList)//在持久化存储中初始化事件列表
+
 
 @Entry
 @Component
 struct Index {
+  @StorageLink('eventList') eventList: Event[] = []; // 使用 @StorageLink 装饰器
+
+  aboutToAppear(): void {
+    const existingEventList:Event[]|undefined = AppStorage.get('eventList');
+    if (existingEventList === undefined) {
+      initializeEventList()
+    }
+  }
 
   build() {
     Stack({alignContent:Alignment.BottomEnd}){

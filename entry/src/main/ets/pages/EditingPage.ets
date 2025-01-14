@@ -1,19 +1,19 @@
+import { Event } from '../util/Event';
 @Entry
 @Component
 struct EditingPage {
-  @State message: string = 'Hello World';
+  @StorageLink('eventList')
+  eventList:Event[]=[]
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('EditingPageHelloWorld')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
+    Column(){
+
     }
+    .linearGradient({
+      direction:GradientDirection.LeftBottom,
+      colors:[['#ff020db7',0],['#ff00030a',1]]
+    })
+    .expandSafeArea()
     .height('100%')
     .width('100%')
   }

@@ -1,6 +1,6 @@
-import { formatDate } from "../util/DateProcessing"
+import { formatDate } from "../../util/DateProcessing"
 import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState,
-  deleteEvent } from "../util/Event"
+  deleteEvent } from "../../util/Event"
 
 @Component
 export struct indexMainPart {

@@ -1,14 +1,8 @@
-import {plusButton} from '../module/PlusButton'
-import {indexMainPart} from '../module/IndexMainPart'
-import { Event, eventList, initializeEventList } from '../util/Event';
-
-// import { Event,initializeEventList, } from '../util/Event'
+import {plusButton} from '../module/IndexModule/PlusButton'
+import {indexMainPart} from '../module/IndexModule/IndexMainPart'
+import { initializeEventList } from '../util/Event';
 
 initializeEventList()
-
-// PersistentStorage.persistProp<Event[]>('eventList', eventList);
-
-
 
 @Entry
 @Component

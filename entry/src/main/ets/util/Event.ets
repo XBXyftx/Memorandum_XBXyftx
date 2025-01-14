@@ -5,7 +5,6 @@ export interface Event {
   title: string;
   details?: string;
   time?: string; // 时间戳字符串
-  position?: string;
   accomplish: boolean;
 }
 

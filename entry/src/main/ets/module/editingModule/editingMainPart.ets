@@ -8,6 +8,7 @@ export struct editingMainPart {
   eventList: Event[] = []
   @State title: string = ''
   @State time: string = ''
+  @State details:string = ''
 
   build() {
     Column({ space: 20 }) {
@@ -40,13 +41,14 @@ export struct editingMainPart {
       .borderRadius(20)
 
       Row({ space: 15 }) {
-        Text('时间')
+        Text('详情')
           .fontColor(Color.White)
-        DatePicker()
+        TextArea({ placeholder: '地点，人物，目标……', text: $$this.details })
+          .backgroundColor(Color.Transparent)
+          .fontColor(Color.White)
+          .placeholderColor(Color.Gray)
           .layoutWeight(1)
-          .onDateChange((selectDate: Date) => {
-            this.time = dateToTimestamp(selectDate)
-          })
+          .height(80)
       }
       .padding({ left: 15, top: 10, bottom: 10 })
       .width('100%')

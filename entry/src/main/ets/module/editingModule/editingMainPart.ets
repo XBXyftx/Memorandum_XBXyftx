@@ -9,12 +9,13 @@ export struct editingMainPart {
   @State title: string = ''
   @State time: string = ''
   @State details: string = ''
-
+  @State timeFlag: boolean = false
 
   clean() {
     this.title = '';
     this.time = '';
     this.details = '';
+    this.timeFlag = false
   }
 
   build() {
@@ -36,11 +37,21 @@ export struct editingMainPart {
       Row({ space: 15 }) {
         Text('时间')
           .fontColor(Color.White)
-        DatePicker()
-          .layoutWeight(1)
-          .onDateChange((selectDate: Date) => {
-            this.time = dateToTimestamp(selectDate)
-          })
+        if (this.timeFlag) {
+          DatePicker()
+            .layoutWeight(1)
+            .onDateChange((selectDate: Date) => {
+              this.time = dateToTimestamp(selectDate)
+            })
+        } else {
+          Text('点击此处选择时间')
+            .fontColor(Color.White)
+            .layoutWeight(1)
+            .onClick(() => {
+              this.timeFlag = true
+            })
+        }
+
       }
       .padding({ left: 15, top: 10, bottom: 10 })
       .width('100%')
@@ -84,7 +95,7 @@ export struct editingMainPart {
             })
           }
         })
-        .onClick(()=>{
+        .onClick(() => {
           addEvent({
             title: this.title,
             time: this.time,

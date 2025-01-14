@@ -26,10 +26,8 @@ export let eventList: Event[] = [
 export function initializeEventList() {
   const eventListJson = JSON.stringify(eventList);
   if (!AppStorage.has('eventList')) {
-    // AppStorage.setOrCreate<string>('eventList', eventListJson);
     PersistentStorage.persistProp<string>('eventList', eventListJson);
   }
-
 }
 
 // 获取事件列表的函数，确保从存储中读取的 JSON 字符串有效

@@ -49,22 +49,42 @@ export function getEventListFromStorage(): Event[] {
   }
 }
 
-// 获取已完成事件列表
+// 获取已完成事件列表，并按时间排序
 export function getAccomplishEventList() {
   let eventList: Event[] = getEventListFromStorage();
-  let accomplishEventList: Event[] = eventList.filter((item: Event) => {
-    return item.accomplish;
-  });
+  // 过滤出已完成的事件，并按时间排序
+  let accomplishEventList: Event[] = eventList
+    .filter((item: Event) => item.accomplish)
+    .sort((a: Event, b: Event) => {
+      if (a.time && b.time) {
+        return new Date(a.time).getTime() - new Date(b.time).getTime();
+      } else if (a.time) {
+        return -1; // 有 time 的放在前面
+      } else if (b.time) {
+        return 1; // 没有 time 的放在后面
+      }
+      return 0;
+    });
   console.log(JSON.stringify(accomplishEventList));
   return accomplishEventList;
 }
 
-// 获取未完成事件列表
+// 获取未完成事件列表，并按时间排序
 export function getUnfinishedEventList() {
   let eventList: Event[] = getEventListFromStorage();
-  let unfinishedEventList: Event[] = eventList.filter((item: Event) => {
-    return item.accomplish === false;
-  });
+  // 过滤出未完成的事件，并按时间排序
+  let unfinishedEventList: Event[] = eventList
+    .filter((item: Event) => item.accomplish === false)
+    .sort((a: Event, b: Event) => {
+      if (a.time && b.time) {
+        return new Date(a.time).getTime() - new Date(b.time).getTime();
+      } else if (a.time) {
+        return -1; // 有 time 的放在前面
+      } else if (b.time) {
+        return 1; // 没有 time 的放在后面
+      }
+      return 0;
+    });
   console.log(JSON.stringify(unfinishedEventList));
   return unfinishedEventList;
 }

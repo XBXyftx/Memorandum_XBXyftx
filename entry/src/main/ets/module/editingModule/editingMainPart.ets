@@ -1,3 +1,4 @@
+import { dateToTimestamp } from '../../util/DateProcessing';
 import { Event } from '../../util/Event';
 
 @Entry
@@ -18,6 +19,34 @@ export struct editingMainPart {
           .fontColor(Color.White)
           .placeholderColor(Color.Gray)
           .layoutWeight(1)
+      }
+      .padding({ left: 15, top: 10, bottom: 10 })
+      .width('100%')
+      .backgroundColor('#c44a4a4a')
+      .borderRadius(20)
+
+      Row({ space: 15 }) {
+        Text('时间')
+          .fontColor(Color.White)
+        DatePicker()
+          .layoutWeight(1)
+          .onDateChange((selectDate: Date) => {
+            this.time = dateToTimestamp(selectDate)
+          })
+      }
+      .padding({ left: 15, top: 10, bottom: 10 })
+      .width('100%')
+      .backgroundColor('#c44a4a4a')
+      .borderRadius(20)
+
+      Row({ space: 15 }) {
+        Text('时间')
+          .fontColor(Color.White)
+        DatePicker()
+          .layoutWeight(1)
+          .onDateChange((selectDate: Date) => {
+            this.time = dateToTimestamp(selectDate)
+          })
       }
       .padding({ left: 15, top: 10, bottom: 10 })
       .width('100%')

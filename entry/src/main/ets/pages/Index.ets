@@ -7,10 +7,16 @@ initializeEventList()
 @Entry
 @Component
 struct Index {
+
+  onPageShow(): void {
+    this.linkNum++
+  }
+  @State linkNum:number = 1
+
   build() {
     Stack({alignContent:Alignment.BottomEnd}){
       //下层主体
-      indexMainPart()
+      indexMainPart({linkNum:this.linkNum})
 
       //上层加号
       plusButton()

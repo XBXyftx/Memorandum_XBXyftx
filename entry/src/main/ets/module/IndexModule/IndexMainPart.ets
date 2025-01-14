@@ -1,12 +1,19 @@
 import { formatDate } from "../../util/DateProcessing"
 import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState,
   deleteEvent } from "../../util/Event"
-
+@Entry
 @Component
 export struct indexMainPart {
   // @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
+
+  @Prop @Watch('reloadList')
+  linkNum:number
+
+  aboutToAppear(): void {
+    this.reloadList
+  }
 
   reloadList() {
     this.unfinishedEventList = getUnfinishedEventList()

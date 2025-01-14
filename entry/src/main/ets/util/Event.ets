@@ -93,3 +93,18 @@ export function deleteEvent(event:Event){
     AppStorage.set('eventList', eventListJson);
   }
 }
+
+export function addEvent(event:Event){
+  if(event.title.trim()===''){
+    AlertDialog.show({
+      message:'事件主题不能为空'
+    })
+    return
+  }else {
+    let eventList: Event[] = getEventListFromStorage()
+    eventList.push(event)
+    const eventListJson: string = JSON.stringify(eventList)
+    AppStorage.set('eventList', eventListJson)
+  }
+
+}

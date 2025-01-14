@@ -1,14 +1,21 @@
 import { dateToTimestamp } from '../../util/DateProcessing';
-import { Event } from '../../util/Event';
+import { addEvent, Event } from '../../util/Event';
+import { router } from '@kit.ArkUI';
 
-@Entry
 @Component
 export struct editingMainPart {
   @StorageLink('eventList')
   eventList: Event[] = []
   @State title: string = ''
   @State time: string = ''
-  @State details:string = ''
+  @State details: string = ''
+
+
+  clean() {
+    this.title = '';
+    this.time = '';
+    this.details = '';
+  }
 
   build() {
     Column({ space: 20 }) {
@@ -57,25 +64,34 @@ export struct editingMainPart {
 
       Button('创建事件')
         .linearGradient({
-          direction:GradientDirection.RightBottom,
-          colors:[
-            ['#ffffffff',0],
-            ['#ff0820fc',0.3],
-            ['#ff060505',1]
+          direction: GradientDirection.RightBottom,
+          colors: [
+            ['#ffffffff', 0],
+            ['#ff0820fc', 0.3],
+            ['#ffac00ac', 1]
           ]
         })
         .width('100%')
         .stateStyles({
-          pressed:{
+          pressed: {
             .linearGradient({
-              direction:GradientDirection.RightBottom,
-              colors:[
-                ['#ffffffff',0],
-                ['#ff0820fc',0.5],
-                ['#ff060505',1]
+              direction: GradientDirection.RightBottom,
+              colors: [
+                ['#ffffffff', 0],
+                ['#ff0820fc', 0.5],
+                ['#ffff01ff', 1]
               ]
             })
           }
+        })
+        .onClick(()=>{
+          addEvent({
+            title: this.title,
+            time: this.time,
+            details: this.details,
+            accomplish: false
+          })
+          router.back()
         })
     }
     .padding({ left: 10, right: 10 })

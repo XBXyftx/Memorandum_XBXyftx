@@ -89,7 +89,7 @@ export function deleteEvent(event:Event){
   let eventList: Event[] = getEventListFromStorage();
   let indexOfEvent: number = eventList.findIndex((item) => item.title === event.title);
   if (indexOfEvent !== -1) {
-    eventList.splice(indexOfEvent)
+    eventList.splice(indexOfEvent,1)
     const eventListJson: string = JSON.stringify(eventList);
     AppStorage.set('eventList', eventListJson);
   }

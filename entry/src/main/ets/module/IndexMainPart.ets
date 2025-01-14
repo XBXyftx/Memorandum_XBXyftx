@@ -81,6 +81,10 @@ export struct indexMainPart {
       .borderRadius(999)
       .backgroundColor(Color.Red)
       .height(28)
+      .onClick(() => {
+        deleteEvent(item)
+        this.reloadList()
+      })
     }
     .height('100%')
     .alignItems(VerticalAlign.Center)

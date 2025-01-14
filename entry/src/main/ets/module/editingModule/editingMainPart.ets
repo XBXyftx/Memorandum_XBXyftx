@@ -55,6 +55,28 @@ export struct editingMainPart {
       .backgroundColor('#c44a4a4a')
       .borderRadius(20)
 
+      Button('创建事件')
+        .linearGradient({
+          direction:GradientDirection.RightBottom,
+          colors:[
+            ['#ffffffff',0],
+            ['#ff0820fc',0.3],
+            ['#ff060505',1]
+          ]
+        })
+        .width('100%')
+        .stateStyles({
+          pressed:{
+            .linearGradient({
+              direction:GradientDirection.RightBottom,
+              colors:[
+                ['#ffffffff',0],
+                ['#ff0820fc',0.5],
+                ['#ff060505',1]
+              ]
+            })
+          }
+        })
     }
     .padding({ left: 10, right: 10 })
     .width('100%')

@@ -2,11 +2,13 @@ import {plusButton} from '../module/IndexModule/PlusButton'
 import {indexMainPart} from '../module/IndexModule/IndexMainPart'
 import { initializeEventList } from '../util/Event';
 
-initializeEventList()
-
 @Entry
 @Component
 struct Index {
+
+  aboutToAppear(): void {
+    initializeEventList()
+  }
 
   onPageShow(): void {
     this.linkNum++

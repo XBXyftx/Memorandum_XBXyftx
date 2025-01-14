@@ -4,9 +4,10 @@ import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccom
 @Entry
 @Component
 export struct indexMainPart {
-  // @StorageLink('eventList') eventList: Event[] = []
+  @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
+  @State eventNum:number=this.unfinishedEventList.length+this.accomplishEventList.length
 
   @Prop @Watch('reloadList')
   linkNum:number
@@ -22,7 +23,7 @@ export struct indexMainPart {
 
   build() {
     Column() {
-      mainPartHeader(this.unfinishedEventList.length + this.accomplishEventList.length)
+      mainPartHeader(this.eventNum)
 
       List({ space: 20 }) {
         ListItemGroup({ header: this.mainPartUnfinishedGroupHeader(), space: 10 }) { //未完成组
@@ -198,7 +199,7 @@ function mainPartHeader(eventNum: number) {
         .fontSize(35)
         .fontColor(Color.White)
         .fontWeight(700);
-      Text(`${eventNum}条代办`)
+      Text(`共${eventNum}条事项`)
         .fontSize(14)
         .fontColor('#ffcfcfcf');
     }

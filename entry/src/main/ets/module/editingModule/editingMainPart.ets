@@ -50,6 +50,7 @@ export struct editingMainPart {
             .onClick(() => {
               this.timeFlag = true
             })
+            .margin({left:14})
         }
 
       }

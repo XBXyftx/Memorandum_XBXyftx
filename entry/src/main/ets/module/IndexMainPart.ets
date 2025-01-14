@@ -7,14 +7,14 @@ export struct indexMainPart {
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
 
-  reloadList(){
+  reloadList() {
     this.unfinishedEventList = getUnfinishedEventList()
     this.accomplishEventList = getAccomplishEventList()
   }
 
   build() {
     Column() {
-      mainPartHeader(this.unfinishedEventList.length+this.accomplishEventList.length)
+      mainPartHeader(this.unfinishedEventList.length + this.accomplishEventList.length)
 
       List({ space: 20 }) {
         ListItemGroup({ header: this.mainPartUnfinishedGroupHeader(), space: 10 }) { //未完成组
@@ -23,8 +23,8 @@ export struct indexMainPart {
               this.eventListItem(item, i)
             }
             .swipeAction({
-              end:{
-                builder:this.unfinishedEventListItemEnd(item)
+              end: {
+                builder: this.unfinishedEventListItemEnd(item)
               }
             })
 
@@ -36,6 +36,11 @@ export struct indexMainPart {
             ListItem() {
               this.eventListItem(item, i)
             }
+            .swipeAction({
+              end: {
+                builder: this.accomplishEventListItemEnd(item)
+              }
+            })
           })
         }
       }
@@ -51,9 +56,9 @@ export struct indexMainPart {
   }
 
   @Builder
-  unfinishedEventListItemEnd(item:Event){//未完成
-    Row({space:20}){
-      Column(){
+  unfinishedEventListItemEnd(item: Event) { //未完成
+    Row({ space: 20 }) {
+      Column() {
         Image($rawfile('ic_public_ok_filled.svg'))//标记为完成
           .height('100%')
           .fillColor(Color.White)
@@ -61,13 +66,13 @@ export struct indexMainPart {
       .borderRadius(999)
       .backgroundColor(Color.Green)
       .height(28)
-      .onClick(()=>{
+      .onClick(() => {
         changeEventAccomplishState(item) //修改完成状态
         // this.eventList.push({ title: '交作业8', accomplish: false })
         this.reloadList() //重新加载页面
       })
 
-      Column(){
+      Column() {
         Image($rawfile('ic_public_delete_filled.svg'))//删除
           .height('100%')
 
@@ -78,7 +83,40 @@ export struct indexMainPart {
     }
     .height('100%')
     .alignItems(VerticalAlign.Center)
-    .padding({left:25,right:25})
+    .padding({ left: 25, right: 25 })
+  }
+
+  @Builder
+  accomplishEventListItemEnd(item: Event) { //完成
+    Row({ space: 20 }) {
+      Column() {
+        Image($rawfile('ic_public_cancel_filled.svg'))//标记为未完成
+          .height('100%')
+          .fillColor(Color.White)
+      }
+      .borderRadius(999)
+      .backgroundColor(Color.Green)
+      .height(28)
+      .onClick(() => {
+        changeEventAccomplishState(item) //修改完成状态
+        this.reloadList() //重新加载页面
+      })
+
+      Column() {
+        Image($rawfile('ic_public_delete_filled.svg'))//删除
+          .height('100%')
+
+      }
+      .borderRadius(999)
+      .backgroundColor(Color.Red)
+      .height(28)
+      .onClick(() => {
+
+      })
+    }
+    .height('100%')
+    .alignItems(VerticalAlign.Center)
+    .padding({ left: 25, right: 25 })
   }
 
   @Builder
@@ -86,17 +124,22 @@ export struct indexMainPart {
     Row() {
       Column({ space: 6 }) {
         Text(item.title)
-          .fontColor(Color.White)
+          .fontColor(item.accomplish ? Color.Gray : Color.White)
           .fontSize(16)
+          .decoration({
+            type: item.accomplish ? TextDecorationType.LineThrough : TextDecorationType.None,
+            color: '#ff000000',
+            style: TextDecorationStyle.DOUBLE
+          })
         if (item.time) { // 确保 item.time 是一个时间戳字符串
           Text(formatDate(item.time))
-            .fontColor(Color.White)
+            .fontColor(item.accomplish ? Color.Gray : Color.White)
             .fontSize(16)
         }
       }
       .justifyContent(FlexAlign.Center)
       .alignItems(HorizontalAlign.Start)
-      .constraintSize({minHeight:25})
+      .constraintSize({ minHeight: 25 })
     }
     .backgroundColor('#8a4a4a4a')
     .margin({ top: index === 0 ? 10 : 0 })

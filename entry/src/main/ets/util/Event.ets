@@ -10,14 +10,14 @@ export interface Event {
 }
 
 export let eventList: Event[] = [
-  { title: '交作业1', accomplish: false },
-  { title: '交作业2', accomplish: false },
-  { title: '交作业3', accomplish: false },
-  { title: '交作业4', accomplish: true },
-  { title: '交作业5', accomplish: true },
-  { title: '交作业6', accomplish: false },
+  { title: '测试用例1', accomplish: false },
+  { title: '测试用例2', accomplish: false },
+  { title: '测试用例3', accomplish: false },
+  { title: '测试用例4', accomplish: true },
+  { title: '测试用例5', accomplish: true },
+  { title: '测试用例6', accomplish: false },
   {
-    title: '交作业7',
+    title: '测试用例7',
     accomplish: false,
     time: dateToTimestamp(new Date('2025-02-01T09:00:00Z')) // 转换为时间戳字符串
   }
@@ -83,4 +83,8 @@ export function changeEventAccomplishState(event: Event) {
     AppStorage.set('eventList', eventListJson);
     // PersistentStorage.persistProp('eventList', eventListJson);
   }
+}
+
+export function deleteEvent(event:Event){
+
 }

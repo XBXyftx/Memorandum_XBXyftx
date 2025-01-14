@@ -128,7 +128,7 @@ export struct indexMainPart {
           .fontSize(16)
           .decoration({
             type: item.accomplish ? TextDecorationType.LineThrough : TextDecorationType.None,
-            color: '#ff000000',
+            color: '#ffb90000',
             style: TextDecorationStyle.DOUBLE
           })
         if (item.time) { // 确保 item.time 是一个时间戳字符串

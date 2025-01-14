@@ -81,10 +81,16 @@ export function changeEventAccomplishState(event: Event) {
     eventList[indexOfEvent].accomplish = !eventList[indexOfEvent].accomplish;
     const eventListJson: string = JSON.stringify(eventList);
     AppStorage.set('eventList', eventListJson);
-    // PersistentStorage.persistProp('eventList', eventListJson);
   }
 }
 
+//删除事件
 export function deleteEvent(event:Event){
-
+  let eventList: Event[] = getEventListFromStorage();
+  let indexOfEvent: number = eventList.findIndex((item) => item.title === event.title);
+  if (indexOfEvent !== -1) {
+    eventList.splice(indexOfEvent)
+    const eventListJson: string = JSON.stringify(eventList);
+    AppStorage.set('eventList', eventListJson);
+  }
 }

@@ -1,6 +1,8 @@
 import { formatDate } from "../../util/DateProcessing"
 import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState,
   deleteEvent } from "../../util/Event"
+import { router } from "@kit.ArkUI"
+
 @Entry
 @Component
 export struct indexMainPart {
@@ -160,6 +162,12 @@ export struct indexMainPart {
     .padding({ left: 10, top: 8, bottom: 8 })
     .borderRadius(10)
     .width('100%')
+    .onClick(()=>{
+      router.pushUrl({
+        url:"pages/FullDetailPage",
+        params:item
+      })
+    })
   }
 
   @Builder

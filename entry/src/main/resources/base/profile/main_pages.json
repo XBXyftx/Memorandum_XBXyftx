@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/EditingPage"
+    "pages/EditingPage",
+    "pages/FullDetailPage"
   ]
 }

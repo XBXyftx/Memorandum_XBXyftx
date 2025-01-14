@@ -1,13 +1,11 @@
-import { Event } from '../util/Event';
+import { editingMainPart } from '../module/editingModule/editingMainPart'
+
 @Entry
 @Component
 struct EditingPage {
-  @StorageLink('eventList')
-  eventList:Event[]=[]
-
   build() {
     Column(){
-
+      editingMainPart()
     }
     .linearGradient({
       direction:GradientDirection.LeftBottom,

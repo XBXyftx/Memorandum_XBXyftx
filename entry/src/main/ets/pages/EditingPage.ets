@@ -1,10 +1,22 @@
 import { editingMainPart } from '../module/editingModule/editingMainPart'
+import { router } from '@kit.ArkUI'
 
 @Entry
 @Component
 struct EditingPage {
   build() {
-    Column(){
+    Column({space:20}){
+      Row(){
+        Image($rawfile('back.svg'))
+          .width(40)
+      }
+      .padding({left:10})
+      .width('100%')
+      .justifyContent(FlexAlign.Start)
+      .onClick(()=>{
+        router.back()
+      })
+
       editingMainPart()
     }
     .linearGradient({

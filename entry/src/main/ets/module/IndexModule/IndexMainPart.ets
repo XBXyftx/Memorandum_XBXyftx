@@ -147,7 +147,7 @@ export struct indexMainPart {
       .alignItems(HorizontalAlign.Start)
       .constraintSize({ minHeight: 25 })
     }
-    .backgroundColor('#8a4a4a4a')
+    .backgroundColor('#c44a4a4a')
     .margin({ top: index === 0 ? 10 : 0 })
     .padding({ left: 10, top: 8, bottom: 8 })
     .borderRadius(10)

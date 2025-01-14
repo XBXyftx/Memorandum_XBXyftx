@@ -1,5 +1,6 @@
 import { formatDate } from "../util/DateProcessing"
-import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState } from "../util/Event"
+import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState,
+  deleteEvent } from "../util/Event"
 
 @Component
 export struct indexMainPart {
@@ -111,7 +112,8 @@ export struct indexMainPart {
       .backgroundColor(Color.Red)
       .height(28)
       .onClick(() => {
-
+        deleteEvent(item)
+        this.reloadList()
       })
     }
     .height('100%')

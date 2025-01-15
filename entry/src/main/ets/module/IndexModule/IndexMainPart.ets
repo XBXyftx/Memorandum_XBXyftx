@@ -9,6 +9,9 @@ export struct indexMainPart {
   @State accomplishEventList: Event[] = getAccomplishEventList()
   @State eventNum:number=this.accomplishEventList.length+this.unfinishedEventList.length
 
+  @Link @Watch('reloadList')
+  linkNum:number
+
   aboutToAppear(): void {
     this.reloadList()
   }

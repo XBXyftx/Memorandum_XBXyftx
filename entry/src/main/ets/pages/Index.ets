@@ -1,23 +1,16 @@
-import {plusButton} from '../module/IndexModule/PlusButton'
-import {indexMainPart} from '../module/IndexModule/IndexMainPart'
+import { plusButton } from '../module/IndexModule/PlusButton'
+import { indexMainPart } from '../module/IndexModule/IndexMainPart'
 import { initializeEventList } from '../util/Event';
 
 @Entry
 @Component
 struct Index {
-
   aboutToAppear(): void {
     initializeEventList()
-    this.linkNum++
   }
-
-  onPageShow(): void {
-    this.linkNum++
-  }
-  @State linkNum:number = 1
 
   build() {
-    Stack({alignContent:Alignment.BottomEnd}){
+    Stack({ alignContent: Alignment.BottomEnd }) {
       //下层主体
       indexMainPart()
 
@@ -25,11 +18,11 @@ struct Index {
       plusButton()
         .width(40)
         .height(40)
-        .margin({right:20,bottom:30})
+        .margin({ right: 20, bottom: 30 })
     }
     .linearGradient({
-      direction:GradientDirection.LeftBottom,
-      colors:[['#ff020db7',0],['#ff00030a',1]]
+      direction: GradientDirection.LeftBottom,
+      colors: [['#ff020db7', 0], ['#ff00030a', 1]]
     })
     .expandSafeArea()
     .height('100%')

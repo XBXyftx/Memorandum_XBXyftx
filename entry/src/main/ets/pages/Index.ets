@@ -19,7 +19,7 @@ struct Index {
   build() {
     Stack({alignContent:Alignment.BottomEnd}){
       //下层主体
-      indexMainPart({linkNum:this.linkNum})
+      indexMainPart()
 
       //上层加号
       plusButton()

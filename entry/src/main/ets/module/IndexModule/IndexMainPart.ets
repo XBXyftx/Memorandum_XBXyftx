@@ -9,9 +9,6 @@ export struct indexMainPart {
   @State accomplishEventList: Event[] = getAccomplishEventList()
   @State eventNum:number=this.accomplishEventList.length+this.unfinishedEventList.length
 
-  @Link @Watch('reloadList')
-  linkNum:number
-
   aboutToAppear(): void {
     this.reloadList()
   }
@@ -24,7 +21,7 @@ export struct indexMainPart {
 
   build() {
     Column() {
-      mainPartHeader(this.eventNum)
+      this.mainPartHeader()
 
       List({ space: 20 }) {
         ListItemGroup({ header: this.mainPartUnfinishedGroupHeader(), space: 10 }) { //未完成组
@@ -63,6 +60,26 @@ export struct indexMainPart {
     }
     .width('100%')
     .height('100%')
+  }
+
+  @Builder
+  mainPartHeader() {
+    // mainPartHeader(this.eventNum)
+    Row() {
+      Column() {
+        Text('待办事项')
+          .fontSize(35)
+          .fontColor(Color.White)
+          .fontWeight(700)
+        Text(`共${this.eventNum}条事项`)
+          .fontSize(14)
+          .fontColor('#ffcfcfcf')
+      }
+      .alignItems(HorizontalAlign.Start)
+    }
+    .padding({ left: 20 })
+    .justifyContent(FlexAlign.Start)
+    .width('100%')
   }
 
   @Builder
@@ -198,21 +215,21 @@ export struct indexMainPart {
   }
 }
 
-@Builder
-function mainPartHeader(eventNum: number) {
-  Row() {
-    Column() {
-      Text('待办事项')
-        .fontSize(35)
-        .fontColor(Color.White)
-        .fontWeight(700);
-      Text(`共${eventNum}条事项`)
-        .fontSize(14)
-        .fontColor('#ffcfcfcf');
-    }
-    .alignItems(HorizontalAlign.Start);
-  }
-  .padding({ left: 20 })
-  .justifyContent(FlexAlign.Start)
-  .width('100%')
-}
+// @Builder
+// function mainPartHeader(eventNum: number) {
+//   Row() {
+//     Column() {
+//       Text('待办事项')
+//         .fontSize(35)
+//         .fontColor(Color.White)
+//         .fontWeight(700);
+//       Text(`共${eventNum}条事项`)
+//         .fontSize(14)
+//         .fontColor('#ffcfcfcf');
+//     }
+//     .alignItems(HorizontalAlign.Start);
+//   }
+//   .padding({ left: 20 })
+//   .justifyContent(FlexAlign.Start)
+//   .width('100%')
+// }

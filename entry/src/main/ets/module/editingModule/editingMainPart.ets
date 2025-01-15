@@ -4,8 +4,6 @@ import { router } from '@kit.ArkUI';
 
 @Component
 export struct editingMainPart {
-  @StorageLink('eventList')
-  eventList: Event[] = []
   @State title: string = ''
   @State time: string = ''
   @State details: string = ''

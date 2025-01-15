@@ -8,6 +8,7 @@ struct Index {
 
   aboutToAppear(): void {
     initializeEventList()
+    this.linkNum++
   }
 
   onPageShow(): void {

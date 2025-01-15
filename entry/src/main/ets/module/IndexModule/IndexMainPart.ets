@@ -1,26 +1,25 @@
 import { formatDate } from "../../util/DateProcessing"
 import { Event, getAccomplishEventList, getUnfinishedEventList, changeEventAccomplishState,
-  deleteEvent } from "../../util/Event"
+  deleteEvent} from "../../util/Event"
 import { router } from "@kit.ArkUI"
 
-@Entry
 @Component
 export struct indexMainPart {
-  @StorageLink('eventList') eventList: Event[] = []
   @State unfinishedEventList: Event[] = getUnfinishedEventList()
   @State accomplishEventList: Event[] = getAccomplishEventList()
-  @State eventNum:number=this.unfinishedEventList.length+this.accomplishEventList.length
+  @State eventNum:number=this.accomplishEventList.length+this.unfinishedEventList.length
 
-  @Prop @Watch('reloadList')
+  @Link @Watch('reloadList')
   linkNum:number
 
   aboutToAppear(): void {
-    this.reloadList
+    this.reloadList()
   }
 
   reloadList() {
     this.unfinishedEventList = getUnfinishedEventList()
     this.accomplishEventList = getAccomplishEventList()
+    this.eventNum = this.accomplishEventList.length+this.unfinishedEventList.length
   }
 
   build() {

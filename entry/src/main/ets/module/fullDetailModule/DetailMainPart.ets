@@ -52,6 +52,17 @@ export struct DetailMainPart {
       .backgroundColor('#c44a4a4a')
       .borderRadius(20)
 
+      Row({ space: 15 }) {
+        Text('状态')
+          .fontColor(Color.White)
+        Text(this.eventToShow.accomplish?'已完成':'未完成')
+          .fontColor(Color.White)
+      }
+      .padding({ left: 15, top: 10, bottom: 10 })
+      .width('100%')
+      .backgroundColor('#c44a4a4a')
+      .borderRadius(20)
+
     }
     .padding({ left: 10, right: 10 })
     .width('100%')

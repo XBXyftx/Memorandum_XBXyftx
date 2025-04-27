@@ -5,17 +5,21 @@
 项目简介：Memorandum_XBXyftx是一款基于HarmonyOS（鸿蒙操作系统）开发的应用程序，旨在为用户提供一个便捷、高效的日常任务管理和提醒工具。通过简洁直观的用户界面和强大的功能，备忘录帮助用户记录、跟踪和完成日常生活中的各种任务和事件。
 主要功能:
 1.事件记录与管理：用户可以创建、编辑和删除事件，包括作业、会议、提醒等。支持为每个事件添加详细的描述和指定时间戳，如图一所示。
+
 ![image](https://github.com/user-attachments/assets/8ee15238-b400-4fb1-859d-48f50e9ae416)
 
 图 1 事件详情页
 2.任务完成状态跟踪：用户可以标记事件为完成或未完成，方便跟踪任务进度，如图2所示。应用提供快速切换任务完成状态的功能，如图三所示。
+
 ![image](https://github.com/user-attachments/assets/ea417fea-afef-4040-a96f-59c27af487eb)
 
 图 2 事件管理页面
+
 ![image](https://github.com/user-attachments/assets/46dac1dd-2801-45e4-9607-2d0c6f381bbe)
 
 图 3 事件快速切换状态功能
 3.时间管理：内置日期选择器，允许用户为事件指定具体的时间，如图4所示。支持将选择的时间转换为时间戳字符串，便于持久化存储和排序。
+
 ![image](https://github.com/user-attachments/assets/65cc38a2-bf78-4aaf-9b45-40b8d26e01b0)
 
 图 4 日期选择器
@@ -27,6 +31,7 @@
 项目结构：
 本项目是基于AppStorage应用全局的UI状态存储、PersistentStorage持久化存储UI状态以及相关组件状态管理修饰器进行开发。利用PersistentStorage持久化存储json格式的字符串来实现备忘录事件数据的持久化存储。
 本项目在鸿蒙应用项目结构框架的基础上增加了module和util文件夹，如图五所示。
+
 ![image](https://github.com/user-attachments/assets/007bda80-881f-4af3-9dd1-f53691ca991b)
 
 图 5 项目结构示意图
